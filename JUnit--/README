@@ -1,0 +1,59 @@
+------------------------------------------------------------------------------------------------------------------------
+======================================================Annotations=======================================================
+------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------
+======================================================Test Class========================================================
+------------------------------------------------------------------------------------------------------------------------
+
+@Test: Test case should annotated as @Test, Test cases are executed in alphabetical order.
+
+@After: Methods annotated as @After, should be run after each execution of a test method.
+Multiple @After methods should be run in alphabetical order.
+
+@AfterClass: Methods annotated as @AfterClass, should be executed once after any tests in the
+class are run. If there are multiple @AfterClass methods, they are executed in alphabetical order.
+
+@Before: Methods annotated as @Before, should be run before each execution of a test method.
+Multiple @Before methods should be run in alphabetical order.
+
+@BeforeClass: Methods annotated as @BeforeClass, should be executed once before any tests in the
+class are run. If there are multiple @BeforeClass methods, they are executed in alphabetical order.
+
+(The @BeforeClass and @AfterClass annotated methods should be run even if there are no @Test methods in the class.
+But not @Before or @After methods.
+
+A method can have only one annotation among {@Test, @BeforeClass, @Before, @AfterClass, @After}.
+If a method has more than one such annotation, testClass should throw an exception (any exception).
+)
+
+------------------------------------------------------------------------------------------------------------------------
+==================================================Quick Check Class=====================================================
+------------------------------------------------------------------------------------------------------------------------
+@Property: Similar to @Test, the method specifies a test case (called a property) but takes some parameters.
+The QuickCheck infrastructure runs that test case repeatedly with random choices of parameters.
+
+@IntRange: Integer arguments must be annotated with @IntRange(min=i1, max=i2), indicating the minimum integer value
+and the maximum integer value (both inclusive) for the argument.
+
+@StringSet: String arguments must be annotated with @StringSet(strings={"s1", "s2", ...}), indicating the set of
+strings for the argument.
+
+@ListLength: List arguments must be annotated with @ListLength(min=i1, max=i2), indicating the minimum and
+maximum (inclusive) list lengths for the argument. The type T must itself be annotated appropriately for its range.
+For example: @ListLength(min=0, max=2) List<@IntRange(min=5, max=7) Integer> indicates an argument with lists of
+length 0 to 2 containing integers from 5 to 7, e.g., [], [5], [6], [7], [5,5], [5,6], [5,7], [6,5], [6,6], [6,7],
+[7,5], [7,6], [7,7]
+
+@ForAll: Object arguments must be annotated with @ForAll(name="method", times=i), where method is the name
+of the (public, no argument, instance) method in the property's class that will be called to generate i values
+for the argument. (You can assume the method exists and that the times count is positive.)
+
+------------------------------------------------------------------------------------------------------------------------
+======================================================Usage=======================================================
+------------------------------------------------------------------------------------------------------------------------
+Please refer the example code of "Main", "QuickCheckClass", "TestClass"
+"TestClass" gives the examples of how to use the method annotations.
+"QuickCheckClass" gives the examples of how to use the parameter annotations.
+"Main" give the examples of how to test a specific class and show the test result
+
